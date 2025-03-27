@@ -1,0 +1,26 @@
+name: Master 
+
+on:
+  push:
+    paths-ignore:
+      - '.github/**'
+    branches:
+      - master
+
+jobs:
+  develop:
+    uses: NTTData-IDP/backstage-github-actions-resources/.github/workflows/backstage-demo-master-angular.yml@master
+    secrets: inherit
+    with:
+      REPO_URL: https://github.com/NTTData-IDP/dashboard-financiero
+      REPO_NAME: dashboard-financiero
+      GIT_REVISION: "${{ github.sha }}"
+      SONARQUBE_SCAN: true
+      SONAR_HOST_URL: http://backstage-demo-sonarqube.westeurope.cloudapp.azure.com:9000/
+      SONAR_PROJECT_KEY: dashboard-financiero
+      SOURCE_TO_SCAN: .
+      SONAR_ORGANIZATION: default
+      IMAGE: ghcr.io/nttdata-idp/dashboard-financiero
+      ORG_NAME: NTTData-IDP
+      UNIT_TEST: true
+      PROJECT_LANGUAGE: angular
