@@ -1,0 +1,32 @@
+site_name: "Documentación del Frontend Angular dashboard-financiero"
+site_description: "Guía para el desarrollo, despliegue y análisis del componente en Angular."
+site_author: "group:default/architecture-leads"
+nav:
+  - Home: index.md
+  - Overview:
+      - Introduction: overview/introduction.md
+      - Architecture: overview/architecture.md
+  - Development:
+      - Setting Up the Environment: development/setup.md
+      - Coding Standards: development/coding-standards.md
+  - Deployment:
+      - CI/CD Pipeline: deployment/ci-cd.md
+      - Kubernetes: deployment/kubernetes.md
+  - Operations:
+      - Monitoring: operations/monitoring.md
+      - Troubleshooting: operations/troubleshooting.md
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - admonition
+theme:
+  name: material
+  palette:
+    primary: "blue"
+    accent: "light blue"
+techdocs:
+  enabled: true
+
+plugins:
+  - techdocs-core

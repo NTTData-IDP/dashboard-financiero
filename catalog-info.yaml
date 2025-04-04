@@ -1,0 +1,36 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "dashboard-financiero"
+  description: "Dashboard Financiero"
+  tags:
+    - front
+  links:
+    - url: https://backstage-demo.westeurope.cloudapp.azure.com/dashboard-financiero-development-deployment/
+      title: Endpoint
+      icon: dashboard
+    - url: https://github.com/NTTData-IDP/dashboard-financiero
+      title: GitHub Repo
+      icon: github
+    - url: http://backstage-demo-sonarqube.westeurope.cloudapp.azure.com:9000/dashboard?id=dashboard-financiero
+      title: Sonarqube Project
+      icon: star
+  annotations:
+    github.com/project-slug: NTTData-IDP/dashboard-financiero
+    backstage.io/techdocs-ref: dir:.
+    sonarqube.org/project-key: dashboard-financiero
+    # tektonci/build-namespace: tekton-pipelines
+    # tektonci/pipeline-label-selector: triggers.tekton.dev/eventlistener=dashboard-financiero
+    backstage.io/kubernetes-label-selector: app=dashboard-financiero
+    argocd/app-name: dashboard-financiero
+    github.com/devcontainer-path: .devcontainer/javascript-node-18-copilot/devcontainer.json
+    jira.com/project-key: KNOT # The key of the Jira project to track for this entity, or Comma-separated list of Jira project keys optionally prefixed with the instance name
+    jira.com/components: dashboard-financiero # Jira component name separated with a comma. The Roadie Backstage Jira Plugin Jira annotation `/component` is also supported here by default
+    jira/project-key: KNOT
+spec:
+  type: website
+  lifecycle: experimental
+  owner: "group:default/architecture-leads"
+  subcomponentOf: component:default/portal-financiero
+  dependsOn:
+    - component:default/datos-financieros-backend
